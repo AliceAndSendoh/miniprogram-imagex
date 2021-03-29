@@ -1,0 +1,31 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="page__hd">
+    <image slot="title" src="../img/top-min.png"
+          style="vertical-align: middle;width:380px; height: 130px;"></image>
+  </view>
+  <view class="page__bd">
+    <mp-cells>
+      <mp-cell link hover value="表示易腐烂、含有机质的垃圾">
+        <image slot="title" src="../img/foodwaste.png"
+          style="margin-right: 16px;vertical-align: middle;width:60px; height: 60px;"></image>
+      </mp-cell>
+      <mp-cell link hover value="适宜回收和资源利用的物品" >
+        <image slot="title" src="../img/recyclable.png"
+          style="margin-right: 16px;vertical-align: middle;width:60px; height: 60px;"></image>
+      </mp-cell>
+      <mp-cell link hover value="对人体健康或自然环境可能造成直接或潜在危害的生活垃圾">
+        <image slot="title" src="../img/hazardouswaste.png"
+          style="margin-right: 16px;vertical-align: middle;width:60px; height: 60px;"></image>
+      </mp-cell>
+      <mp-cell link hover value="不能归类于以上三类的生活垃圾">
+        <image slot="title" src="../img/residualwaste.png"
+          style="margin-right: 16px;vertical-align: middle;width:60px; height: 60px;"></image>
+      </mp-cell>
+    </mp-cells>
+  </view>
+  <view>
+    <button class='photo' bindtap='takePhoto'  type='primary'>智能识别</button>
+  </view>
+  
+</view>

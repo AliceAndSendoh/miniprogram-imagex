@@ -16,6 +16,7 @@
     "@tensorflow/tfjs-layers": "^2.0.1",
     "fetch-wechat": "0.0.3",
     "regenerator-runtime": "^0.13.7",
-    "weui-miniprogram": "^1.0.7"
+    "weui-miniprogram": "^1.0.7",
+    "wx-server-sdk": "^2.4.0"
   }
 }

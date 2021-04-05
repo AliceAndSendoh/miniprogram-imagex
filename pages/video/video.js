@@ -6,8 +6,10 @@ var webgl = require('@tensorflow/tfjs-backend-webgl');
 const tfl = require('@tensorflow/tfjs-layers');
 var plugin = requirePlugin('tfjsPlugin');
 const util = require('../../utils/util');
-const MODELURL = 'http://ywjgmis-ywjgmis.stor.sinaapp.com/images_model/model.json';
-const CLASSESURL = 'http://ywjgmis-ywjgmis.stor.sinaapp.com/images_model/classes.json';
+// const MODELURL = 'http://ywjgmis-ywjgmis.stor.sinaapp.com/images_model/model.json';
+// const CLASSESURL = 'http://ywjgmis-ywjgmis.stor.sinaapp.com/images_model/classes.json';
+const MODELURL = 'https://ywjgmis.applinzi.com/file/model.json';
+const CLASSESURL = 'https://ywjgmis.applinzi.com/file/classes.json';
 
 Page({
   data: {
@@ -29,10 +31,9 @@ Page({
     let count = 0
     const listener = camera.onCameraFrame((frame) =>{
       count++
-      if(count == 10){
+      if(count == 50){
         if(model){
           this.wasteSorting(frame,model,CLASSES);
-          
         }
         count =0;
       }
@@ -51,12 +52,12 @@ Page({
       const imgTensor = tf.browser.fromPixels(imgData)
       //图片大小调整
       const imgTsResized = tf.image.resizeBilinear(imgTensor,[224,224]);
-      console.log("imgTsResized==="+imgTsResized);
       //归一化
        return imgTsResized.toFloat().sub(255/2).div(255/2).reshape([1,224,224,3]);
     })
     const pred = model.predict(x);
-    const results = pred.arraySync()[0].map((score,i) => ({score,label:CLASSES[i]})).sort((a,b)=>b.score-a.score);
+    const results = pred.arraySync()[0].map((score,i) => ({score:util.toPercentage(score),label:CLASSES[i]})).sort((a,b)=>b.score-a.score);
+    
     console.log(results);
     this.setData({
       list: results,

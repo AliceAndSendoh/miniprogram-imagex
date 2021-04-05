@@ -2,6 +2,7 @@ var fetchWechat = require('fetch-wechat');
 var tf = require('@tensorflow/tfjs-core');
 var webgl = require('@tensorflow/tfjs-backend-webgl');
 var plugin = requirePlugin('tfjsPlugin');
+//const cloud = require('wx-server-sdk')
 // app.js
 App({
   onLaunch() {

@@ -2,3 +2,28 @@
 page{
     height: 100%;
 }
+camera{
+    width:100%; 
+    height:75%
+}
+camera canvas{
+    width:100%; 
+    height:100%
+}
+.fatherView{
+    width: 95%;
+    display:flex;
+    flex-wrap:wrap;
+    border: 3rpx solid #dafa82;
+	border-radius: 10rpx;
+  	padding: 10rpx;
+}
+.labelView{
+    width:40%; 
+    text-align: right;
+}
+.scoreView{
+    width:50%; 
+    text-align: center;
+}
+

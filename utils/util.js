@@ -61,7 +61,13 @@ function fetchJson(url){
   });
   
 }
+
+function toPercentage(number) { 
+  var str=Number(number*100).toFixed(2);
+    return str;
+}
 module.exports = {
   file2img: file2img,
-  fetchJson:fetchJson
+  fetchJson:fetchJson,
+  toPercentage:toPercentage
   }
